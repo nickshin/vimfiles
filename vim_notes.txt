@@ -1,0 +1,658 @@
+" vim notes by nick shin <nshin@estss.com>
+"
+" this file can be found at: https://github.com/nickshin/vimfiles
+
+
+" plugins i find useful and/or interesting
+" ...and notes for myself...
+"
+" to see what plugins are installed:
+"     :scriptnames
+
+
+
+finish							" do not accidentally pick this file up... =)
+
+
+
+" ========================================
+" vim plugins {{{
+" ========================================
+"
+" must have
+" ---------
+" * pathogen.vim				" https://github.com/tpope/vim-pathogen
+" * repeat.vim					" https://github.com/tpope/vim-repeat
+" + unimpaired.vim				" https://github.com/tpope/vim-unimpaired
+"									o Bubble single lines
+"									nmap <C-Up> [e
+"									nmap <C-Down> ]e
+"									o Bubble multiple lines
+"									vmap <C-Up> [egv
+"									vmap <C-Down> ]egv
+"
+" + ZoomWin.vim					" http://www.drchip.org/astronaut/vim/index.html#ZOOMWIN
+"								" WARNING: lift <ctrl> key before toggling between zooms
+"
+" + gundo						" http://sjl.bitbucket.org/gundo.vim/
+"									o vim history visualized
+
+
+
+" very useful 4 programming
+" -------------------------
+" * vim-fugitive				" https://github.com/tpope/vim-fugitive
+"
+" * YouCompleteMe				" https://github.com/Valloric/YouCompleteMe
+"									o 'C-family' C# python ruby php
+" ? perl_omni					" https://github.com/c9s/perlomni.vim
+" + vdebug						" https://github.com/joonty/vdebug
+"									o PHP, Python, Ruby, Perl, Tcl and NodeJS debugger
+"									o NOTE: DBGP -- (network) port based XML communication
+"
+" * term for vim				" https://github.com/marijnh/tern_for_vim
+" * vim-json					" https://github.com/elzr/vim-json
+"									o highlighter only (i.e. not a reformator)
+"
+" + Tabular						" http://github.com/godlygeek/tabular
+" + exchange					" https://github.com/tommcdo/vim-exchange
+"									o swap 2 regions
+"
+" + matchit						" INCLUDED: https://github.com/tsaleh/vim-matchit
+"									o does HTML tags too!!!
+"									o BUT!!! MUST BE ft=html,php,etc.
+" + surround.vim				" https://github.com/tpope/vim-surround/blob/master/doc/surround.txt
+"									o does HTML tags too!!!
+
+
+
+" useful expanders
+" ----------------
+" * markdown					" INCLUDED: http://daringfireball.net/projects/markdown/
+"									o potential to work with: http://johnmacfarlane.net/pandoc/
+" * sparkup						" https://github.com/rstacruz/sparkup
+"									o HTML short hand expander
+"
+" * vim-snippets				" https://github.com/honza/vim-snippets
+"									o used for both snipmate and UltiSnips
+" * UltiSnips					" https://github.com/SirVer/ultisnips
+"									o python powered
+" + snipmate					" http://www.vim.org/scripts/script.php?script_id=2540
+"									o vimscript powered
+
+
+
+" misc (TBD: i.e. not yet installed -- but looks interesting...)
+" ----
+" - rainbow						" https://github.com/kien/rainbow_parentheses.vim
+" - showmarks.vim				" http://www.vim.org/scripts/script.php?script_id=152
+"
+" - visual-star-search			" https://github.com/nelstrom/vim-visual-star-search
+" - abolish						" https://github.com/tpope/vim-abolish
+"									o abbreviation and substitution
+"									o http://vimcasts.org/episodes/smart-search-with-subvert/
+"
+" - tComment					" https://github.com/tomtom/tcomment_vim
+" - commentary					" https://github.com/tpope/vim-commentary
+" - NERDCommenter				" https://github.com/scrooloose/nerdcommenter
+
+
+
+" ========================================
+" vim plugins }}}
+" ctag generators {{{
+" ========================================
+
+
+" https://github.com/universal-ctags/ctags
+" + continue the development of Darren Hiebert’s Exuberant-ctags after activity on that project unfortunately stalled
+"   o original: http://ctags.sourceforge.net/languages.html
+"
+" + https://github.com/majutsushi/tagbar/wiki
+"
+"	o JAVASCRIPT: https://github.com/mozilla/doctorjs
+"	  Node.js server (Narcissus) and CLI (jsctags)
+"
+"	o PHP: https://github.com/techlivezheng/vim-plugin-tagbar-phpctags
+"	o PHP: https://github.com/techlivezheng/phpctags
+"	  CLI (phpctags)
+"
+"	o PERL: https://github.com/kberov/ctags
+"	  use ctags for perl
+"	  .ctags modified for additional regex support for perl...
+"
+"	o PYTHON: http://www.held.org.il/blog/2011/02/configuring-ctags-for-python-and-vim/
+"	  use ctags for python with the option: --python-kinds=-i
+
+
+" ========================================
+" ctag generators }}}
+" code beautifiers - reformatter {{{
+" ========================================
+
+
+" AUTOINDENT:
+" :retab						" NOTE: [ = ] is very 'limited'
+
+
+" JAVASCRIPT:
+" https://github.com/mishoo/UglifyJS2
+" :!uglifyjs -b -
+" :!uglifyjs -b width=200 ie-proof=false -
+"
+" https://github.com/einars/js-beautify
+" :!js-beautify -
+" :!js-beautify -t -p -P -B -k -
+"
+" :!js-beautify --type css -
+" :!css-beautify -
+"
+" :!js-beautify --type html -
+" :!html-beautify -
+" :!html-beautify -p -
+
+
+" JSON: must be whole data set
+" http://stackoverflow.com/questions/352098/how-to-pretty-print-json-from-the-command-line
+" :!json_xs						" WARNING: will re-order first object down to the 3rd ... or something like that...
+" :!python -m json.tool			" WARNING: will re-order alphabetically & leaves trailing whitespaces
+
+
+" XML: must be whole data set
+" :!xmllint --format -
+" :!xmllint --format --recover -
+" :!xmllint --format --htmlout -
+
+
+" ========================================
+" code beautifiers - reformatter }}}
+" vim plugins -- notes {{{
+" ========================================
+
+
+" NOTE: see built-in help: very extensive
+
+
+" ----------------------------------------
+" vim plugins -- 4 progamming {{{2
+" ----------------------------------------
+
+" https://github.com/tpope/vim-surround/blob/master/doc/surround.txt
+" - Vs<strong>					" just surrounds line
+" - VS<strong>					" will indent line (note: capital 'S')
+"   o note: 'V' select LINE
+"
+" - viws<em>					" 'v'isual 'i'nner 'w'ord 's'urround
+"
+" - target and replacement can be:
+"	( )  { }  [ ]  < >  '  "
+"	  b    B    r    a  '  "
+"   w:word  W:WORD  s:sentance  t:tag
+"
+" - ds1		*delete surroundings*
+"				1: target to nuke
+"				i.e. ds'
+"				i.e. dst
+" - cs12	*change surroundings*
+"				1: target
+"				2: replacement
+"				i.e. cs'"
+"				i.e. cs"<strong>
+"				i.e. cst<em>
+" - ys...	*you surround*
+"				i.e. ysiw]		" 'y'ou 's'urround 'i'nner 'w'ord
+"								" ']' no space while '[' with space
+"			the following two are the same:
+"				     yssb		" 'y'ou 's'urround 's'entance 'b'race
+"				     yss)
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+" http://vimcasts.org/episodes/formatting-text-with-par/
+
+:set formatprg=par\ -w50
+
+" useful options to par
+"	w - specify line length
+"	r - repeat characters in bodiless lines
+"	j - justifies text
+"	e - remove ‘superflous’ lines
+"	q - handle nested quotations in plaintext email
+" run "gqip" to reformat the paragraph
+
+" http://vimcasts.org/episodes/using-external-filter-commands-to-reformat-html/
+
+if has("autocmd")
+  let pandoc_pipeline  = "pandoc --from=html --to=markdown"
+  let pandoc_pipeline .= " | pandoc --from=markdown --to=html"
+  autocmd FileType html let &l:formatprg=pandoc_pipeline
+endif
+
+gqq								" filter the current line
+gqG								" filter rest buffer (use gg to start from top)
+gq								" filter selected lines
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+" http://vimcasts.org/blog/2011/05/the-fugitive-series/
+" - WATCH !!! WATCH !!! WATCH !!! WATCH !!! WATCH
+" - topics 1-5 are links to the screencasts
+
+
+" ----------------------------------------
+" vim plugins -- 4 programming }}}2
+" vim plugins -- expanders {{{2
+" ----------------------------------------
+
+" sparkup:
+" http://www.youtube.com/watch?v=Jw3jipcenKc
+"     example> tag + tag
+"         <tag></tag>
+"         <tag></tag>
+"
+"     example> tag1 > tag2
+"         <tag1>
+"             <tag2></tag2>
+"         </tag1>
+"
+"     example> #header > ul > li *3 {text} < p{Footer}
+"         <div id="header">
+"             <ul>
+"                 <li> text </li>
+"                 <li> text </li>
+"                 <li> text </li>
+"             </ul>
+"             <p>Footer</p>
+"         </div>
+
+
+" snipMate:
+" to find out all of the available 'snippets' -- read the files found in ~/.vim/snippets/        =)
+" then "TAB" to goto next 'field'
+"     autoit.snippets
+"     cpp.snippets
+"     c.snippets
+"     erlang.snippets
+"     html.snippets
+"     javascript.snippets
+"     java.snippets
+"     mako.snippets
+"     objc.snippets
+"     perl.snippets
+"     php.snippets
+"     python.snippets
+"     ruby.snippets
+"     sh.snippets
+"     _.snippets
+"     snippet.snippets
+"     tcl.snippets
+"     tex.snippets
+"     vim.snippets
+"     zsh.snippets
+
+
+" ========================================
+" vim plugins -- expanders }}}2
+" vim plugins -- notes }}}
+" vim plugins -- misc {{{
+" vim "plugin distros" {{{2
+" ========================================
+
+" hint: use only what you need, don't use all that you see : keep Vim lean and mean
+
+" - https://github.com/joyent/node/wiki/Vim-Plugins
+" - https://github.com/spf13/spf13-vim
+" - https://github.com/mnazim/dotfiles/tree/master/vim/bundle :: http://mirnazim.org/writings/vim-plugins-i-use/
+" - https://github.com/carlhuda/janus
+" - https://github.com/zaiste/vimified
+" - https://github.com/csexton/viceroy
+
+" ----------------------------------------
+" vim "plugin distros" }}}2
+" vim plugin -- obsoleted {{{2
+" ----------------------------------------
+
+
+" superceded by Unite
+" + bufexplorer.vim				" http://www.vim.org/scripts/script.php?script_id=42
+"									o this was before learning :ls :b<n> and :b#
+"									o but i still like \be with vim navigation keys
+"									o and :b# is a bit clumsy to type than \ben<enter>
+"									  again, that's --> <shift>;<noshift>b<shift>3
+
+
+" superceded by YouCompleteMe
+" x clang_complete				" https://github.com/Rip-Rip/clang_complete
+" x SuperTab					" https://github.com/ervandew/supertab
+" x DelimitMate					" https://github.com/Raimondi/delimitMate
+" x ctrlP						" https://github.com/kien/ctrlp.vim
+"									o MRU + FuzzyFinder + bufexplorer
+"									o intelligent autocompletion for quotes, parenthesis, brackets etc.
+" x command-T					" http://git.wincent.com/command-t.git
+"									o https://wincent.com/products/command-t
+"									o fuzzy file finder
+" x NERDTree					" https://github.com/scrooloose/nerdtree
+" * syntastic					" https://github.com/scrooloose/syntastic
+"									o on demand/save syntax checker
+" + taglist.vim					" http://www.vim.org/scripts/script.php?script_id=273
+" - tagbar						" https://github.com/majutsushi/tagbar
+"									o possible taglist replacement
+" ? vimfiler					" https://github.com/Shougo/vimfiler.vim
+"									o YouCompleteMe alternative?
+
+
+" superceded by Tabular
+" + Align						" http://www.drchip.org/astronaut/vim/doc/Align.txt.html
+
+
+" ========================================
+" vim plugin -- obsoleted }}}2
+" vim plugins -- misc }}}
+" vimrc misc {{{
+" ========================================
+
+"http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+set completeopt=longest,menuone
+set completeopt=menu,preview	" DEFAULT
+
+" ------------------------------------------------------------
+
+set tags=/mk5/code/tags,/mk5/scripts/tags,/mk5/particles/tags,/mk5/port/ps2/tags,/mk5/port/xbox/tags
+set tags=/mk6/code/tags,/mk6/scripts/tags,/mk6/particles/tags,/mk6/port/ps2/tags,/mk6/port/xbox/tags
+set tags=/mk7/code/tags,/mk7/scripts/tags,/mk7/particles/tags,/mk7/port/ps2/tags,/mk7/port/xbox/tags
+
+" ------------------------------------------------------------
+
+set grepprg=grep\ -nH\ $*
+set grepprg=grep\ --exclude='*.svn-base'\ -n\ $*\ /dev/null " don't grep through svn-base files
+
+" ------------------------------------------------------------
+
+" http://vimcasts.org/episodes/working-with-tabs/
+
+:tabe[dit] filename				" Open filename in a new tab
+ctrl-W T						" Move current split window into its own tab
+:tabc[lose]						" Close the current tab page and all its windows
+:tabo[nly]						" Close all tabs apart from the current one
+
+gt								" Move to next tab
+gT								" Move to previous tab
+#gt								" Move to tab number #
+
+:tabmove						" Move current tab to the end
+:tabmove 0						" Move current tab to the beginning
+:tabmove 1						" Move current tab to become the 2nd tab
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" http://vimcasts.org/episodes/using-the-changelist-and-jumplist/
+
+:changes
+g;								" previous change
+g,								" next change
+
+:jumps
+ctrl-O							" previous cursor location
+ctrl-I							" next cursor location
+
+" http://vimcasts.org/episodes/long-range-line-duplication/
+
+:9t.							" copy line 9 placing a duplicate below the current line
+:t5								" copy the current line placing a duplicate below the line 5 (and moving the cursor)
+:-7t.							" copy the line 7 before the current cursor position placing a duplicate below the current line
+:+4t.							" copy the line 4 after the current cursor position placing a duplicate below the current line
+:9,11t.							" copy the lines 9 to 11 placing the duplicate lines below the current cursor position
+
+:h :yank
+:h :copy
+:h :t
+:h {address}
+:h :''
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" http://vimcasts.org/episodes/refining-search-patterns-with-the-command-line-window/
+
+q/								" Open the commandline window with history of searches
+q:								" Open the commandline window with history of commands
+ctrl-f							" Switch from commandline mode to the commandline window
+
+" http://vimcasts.org/episodes/operating-on-search-matches-using-gn/
+
+gn								" search next and select
+gN								" search prev and select
+cgn								" change next search - very useful with '.' -- and only changes selection (not the whole word: e.g. cw)
+gUgn							" upper case next search (7.4.110)
+
+:h gn
+:h visual-operators				" operators that can be used with visual selection
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" http://vimcasts.org/episodes/profiling-vimscript-performance/
+" http://vimcasts.org/episodes/using-argdo-to-change-multiple-files/
+
+--cmd {command}					" executed before processing any vimrc file
+
++{command}						" executed after the first filehas been read
+-c {command}
+
+:[silent] argdo {command}
+:[silent!] bufdo {command}
+:windo {command}
+:tabdo {command}
+
+:args {arglist}					" will close buffers if not in arglist
+
+" http://vimcasts.org/episodes/project-wide-find-and-replace/
+" new: in 7.4.858
+
+:cdo {command}					" error list (quickfix) entry
+:cfdo {command}					" file in error list (quickfix)
+:ldo {command}					" location list entry
+:lfdo {command}					" file in location list
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" http://vimcasts.org/episodes/simple-calculations-with-vims-expression-register/
+" http://vimcasts.org/episodes/evaluating-scripts-with-vims-expression-register/
+
+:h i_CTRL-R_=
+:h expr
+
+:h float-functions
+:h function-list
+
+:put =1+2
+:put =system('echo $RANDOM')
+:read !ruby bla.rb
+@:								" . for ex commands
+
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" left off on 68
+
+
+
+" ========================================
+" vimrc misc }}}
+" vimrc plugins {{{
+" ========================================
+
+
+" Notes from the internetz...
+
+
+" ----------------------------------------
+" ShowMarks {{{2
+" ----------------------------------------
+
+" showmarks.vim
+" http://www.vim.org/scripts/script.php?script_id=152
+" - \mt		toggle
+" - \mh		hide
+" - \ma		hide all
+" - \mm		place next available mark
+
+
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+" Don't leave on by default, use :ShowMarksOn to enable
+let g:showmarks_enable = 0
+
+" For marks a-z
+highlight ShowMarksHLl gui=bold guibg=LightBlue guifg=Blue
+
+" For marks A-Z
+highlight ShowMarksHLu gui=bold guibg=LightRed guifg=DarkRed
+
+" For all other marks
+highlight ShowMarksHLo gui=bold guibg=LightYellow guifg=DarkYellow
+
+" For multiple marks on the same line.
+highlight ShowMarksHLm gui=bold guibg=LightGreen guifg=DarkGreen
+
+
+" ----------------------------------------
+" ShowMarks }}}2
+" MatchIt {{{2
+" ----------------------------------------
+
+"	let b:match_ignorecase = 1
+
+" ========================================
+" MatchIt }}}2
+" jsbeautify {{{2
+" ----------------------------------------
+
+
+" jsbeautify
+" is available as a plug-in -- but it does not support range select
+"autocmd FileType javascript noremap <buffer> <leader>bb :call JsBeautify()<cr>
+"autocmd FileType html       noremap <buffer> <leader>bb :call HtmlBeautify()<cr>
+"autocmd FileType css        noremap <buffer> <leader>bb :call CSSBeautify()<cr>
+"let g:config_Beautifier = {'js': {'indent_style': 'tab'}, 'html': {'brace_style': 'collapse', 'indent_style': 'tab', 'max_char': '78'}, 'css': {'indent_style': 'tab'}}
+
+
+
+" ========================================
+" jsbeautify }}}2
+" vimrc plugins }}}
+" vimrc filetype {{{
+" ========================================
+
+"------ Filetypes one liners ------"
+
+autocmd FileType vim,sh          setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4
+autocmd FileType php,css         setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType html,xhtml,xml
+				\,javascript
+				\,ruby
+								\ setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+autocmd Filetype lisp,scheme setlocal equalprg=~/.vim/bin/lispindent.lisp expandtab shiftwidth=2 tabstop=8 softtabstop=2
+
+" JSON
+autocmd BufRead,BufNewFile *.json setfiletype javascript
+let javascript_enable_domhtmlcss=1
+
+"------ Filetypes multi lines ------"
+
+autocmd FileType python set formatoptions=wcrq2l
+autocmd FileType python set inc="^\s*from"
+autocmd FileType python so /usr/share/vim/vim72/indent/python.vim
+
+autocmd FileType c      set si
+autocmd FileType mail   set noai
+autocmd FileType mail   set ts=3
+autocmd FileType mail   set tw=78
+autocmd FileType mail   set shiftwidth=3
+autocmd FileType mail   set expandtab
+autocmd FileType xslt   set ts=4
+autocmd FileType xslt   set shiftwidth=4
+autocmd FileType txt    set ts=3
+autocmd FileType txt    set tw=78
+autocmd FileType txt    set expandtab
+
+
+" ------------------------------------------------------------
+" https://github.com/kana/vim-textobj-user/wiki
+" define your own text objects without handling many edge cases and complex stuffs
+
+
+" ========================================
+" vimrc filetype }}}
+" vimrc mandrake -- old {{{
+" ========================================
+
+"" Gzip and Bzip2 files support
+" Take from the Debian package and the exemple on $VIM/vim_exemples
+if has("autocmd")
+
+" Set some sensible defaults for editing C-files
+augroup cprog
+  " Remove all cprog autocommands
+  au!
+
+  " When starting to edit a file:
+  "   For *.c and *.h files set formatting of comments and set C-indenting on.
+  "   For other files switch it off.
+  "   Don't change the order, it's important that the line with * comes first.
+  autocmd BufRead *       set formatoptions=tcql nocindent comments&
+  autocmd BufRead *.c,*.h set formatoptions=croql cindent comments=sr:/*,mb:*,el:*/,://
+augroup END
+
+" Also, support editing of gzip-compressed files. DO NOT REMOVE THIS!
+" This is also used when loading the compressed helpfiles.
+augroup gzip
+  " Remove all gzip autocommands
+  au!
+
+  " Enable editing of gzipped files
+  "	  read:	set binary mode before reading the file
+  "		uncompress text in buffer after reading
+  "	 write:	compress file after writing
+  "	append:	uncompress file, append, compress file
+  autocmd BufReadPre,FileReadPre	*.gz set bin
+  autocmd BufReadPre,FileReadPre	*.gz let ch_save = &ch|set ch=2
+  autocmd BufReadPost,FileReadPost	*.gz '[,']!gunzip
+  autocmd BufReadPost,FileReadPost	*.gz set nobin
+  autocmd BufReadPost,FileReadPost	*.gz let &ch = ch_save|unlet ch_save
+  autocmd BufReadPost,FileReadPost	*.gz execute ":doautocmd BufReadPost " . %:r
+
+  autocmd BufWritePost,FileWritePost	*.gz !mv <afile> <afile>:r
+  autocmd BufWritePost,FileWritePost	*.gz !gzip <afile>:r
+
+  autocmd FileAppendPre			*.gz !gunzip <afile>
+  autocmd FileAppendPre			*.gz !mv <afile>:r <afile>
+  autocmd FileAppendPost		*.gz !mv <afile> <afile>:r
+  autocmd FileAppendPost		*.gz !gzip <afile>:r
+augroup END
+
+augroup bzip2
+  " Remove all bzip2 autocommands
+  au!
+
+  " Enable editing of bzipped files
+  "       read: set binary mode before reading the file
+  "             uncompress text in buffer after reading
+  "      write: compress file after writing
+  "     append: uncompress file, append, compress file
+  autocmd BufReadPre,FileReadPre        *.bz2 set bin
+  autocmd BufReadPre,FileReadPre        *.bz2 let ch_save = &ch|set ch=2
+  autocmd BufReadPost,FileReadPost      *.bz2 set cmdheight=2|'[,']!bunzip2
+  autocmd BufReadPost,FileReadPost      *.bz2 set cmdheight=1 nobin|execute ":doautocmd BufReadPost " . %:r
+  autocmd BufReadPost,FileReadPost      *.bz2 let &ch = ch_save|unlet ch_save
+
+  autocmd BufWritePost,FileWritePost    *.bz2 !mv <afile> <afile>:r
+  autocmd BufWritePost,FileWritePost    *.bz2 !bzip2 <afile>:r
+
+  autocmd FileAppendPre                 *.bz2 !bunzip2 <afile>
+  autocmd FileAppendPre                 *.bz2 !mv <afile>:r <afile>
+  autocmd FileAppendPost                *.bz2 !mv <afile> <afile>:r
+  autocmd FileAppendPost                *.bz2 !bzip2 -9 --repetitive-best <afile>:r
+augroup END
+
+endif " has ("autocmd")
+
+" ========================================
+" vimrc mandrake -- old }}}
+" ========================================
+
+" vim: set ft=vim tw=0 :
