@@ -17,14 +17,11 @@
 #dst=~/.vim
 dst=`pwd`'/dotvim.test'
 
-downloads=__downloads
-
 # ============================================================
 
 bundle_setup()
 {
 	mkdir -p $dst/autoload $dst/bundle
-	mkdir -p $dst/../$downloads
 }
 
 housekeeping()
