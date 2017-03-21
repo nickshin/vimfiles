@@ -155,6 +155,14 @@ inoremap jk <Esc>
 
 
 " - - - - - - - - - - - - - - - - - - - -
+" ack
+
+if executable('ag')
+	let g:ackprg = 'ag --vimgrep'
+endif
+
+
+" - - - - - - - - - - - - - - - - - - - -
 " tern
 let g:tern_map_keys=1
 let g:tern_show_argument_hints='on_hold'

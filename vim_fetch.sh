@@ -47,7 +47,6 @@ bundle_git()
 
 	# ------------------------------------------------------------
 	git clone git://github.com/tpope/vim-fugitive
-	git clone git://github.com/tpope/vim-jdaddy
 	git clone git://github.com/tpope/vim-repeat
 	git clone git://github.com/tpope/vim-surround
 	git clone git://github.com/tpope/vim-unimpaired
@@ -60,40 +59,47 @@ bundle_git()
 		make
 # WARNING: doc file sez no work on Cygwin - use GitBash
 		cd ..
-	git clone git://github.com/Shougo/vimshell.vim vimshell
 
 	# ------------------------------------------------------------
-	git clone git://github.com/rking/ag.vim ag
+	# commands
+	git clone git://github.com/mileszs/ack.vim
+#		sudo apt-get install ack-grep
+#		sudo apt-get install silversearcher-ag
 	git clone git://github.com/sjl/gundo.vim gundo
-	git clone git://github.com/godlygeek/tabular.git
-	git clone git://github.com/tommcdo/vim-exchange
+	git clone git://github.com/joonty/vdebug
 	git clone git://github.com/vim-scripts/ZoomWin
-	git clone git://github.com/vim-scripts/matchit.zip
-	git clone git://github.com/msanders/snipmate.vim snipmate
+	# ------------------------------------------------------------
+	# editing
+	git clone git://github.com/garbas/vim-snipmate
 	git clone git://github.com/rstacruz/sparkup
 		cd sparkup
 		make vim-pathogen
 		cd ..
-	git clone git://github.com/scrooloose/syntastic
-	git clone git://github.com/marijnh/tern_for_vim
-		cd tern_for_vim
-		npm install
-		cd ..
-	git clone git://github.com/joonty/vdebug
-	git clone git://github.com/bling/vim-airline
-		# i like the inactive line a little brighter
-		perl -pi -e 's/303030/a0a0a0/' vim-airline/autoload/airline/themes/dark.vim
+	git clone git://github.com/godlygeek/tabular.git
+	git clone git://github.com/tommcdo/vim-exchange
+	# ------------------------------------------------------------
+	git clone git://github.com/tpope/vim-jdaddy
 	git clone git://github.com/maksimr/vim-jsbeautify
 		cd vim-jsbeautify
 		git submodule update --init --recursive
 		cd ..
+	git clone git://github.com/ternjs/tern_for_vim
+		cd tern_for_vim
+		npm install
+		cd ..
 	git clone git://github.com/elzr/vim-json
+	# ------------------------------
+	git clone git://github.com/elixir-lang/vim-elixir
+	# ------------------------------------------------------------
+	git clone git://github.com/bling/vim-airline
+		# i like the inactive line a little brighter
+		perl -pi -e 's/303030/a0a0a0/' vim-airline/autoload/airline/themes/dark.vim
 	git clone git://github.com/Valloric/YouCompleteMe
 		cd YouCompleteMe
 		git submodule update --init --recursive
 #		sudo apt-get install build-essential cmake
-#		sudo apt-get install python-dev
-		./install.sh --clang-completer
+#		sudo apt-get install python-dev python3-dev
+		./install.py --clang-completer --gocode-completer --tern-completer
 		cd ..
 }
 
