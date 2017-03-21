@@ -16,6 +16,8 @@ finish							" do not accidentally pick this file up... =)
 
 " jic:
 " http://www.vim.org/git.php
+" https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
+" o REMEMBER to also change symlink for "vi" ^_^
 
 
 " ========================================

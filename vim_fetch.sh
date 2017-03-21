@@ -71,6 +71,9 @@ bundle_git()
 	# ------------------------------------------------------------
 	# editing
 	git clone git://github.com/garbas/vim-snipmate
+		git clone git://github.com/tomtom/tlib_vim.git
+		git clone git://github.com/MarcWeber/vim-addon-mw-utils.git
+		git clone git://github.com/honza/vim-snippets.git
 	git clone git://github.com/rstacruz/sparkup
 		cd sparkup
 		make vim-pathogen
