@@ -1,4 +1,4 @@
-" vim notes by nick shin <nshin@estss.com>
+" vim notes by nick shin <nick.shin@gmail.com>
 "
 " this file can be found at: https://github.com/nickshin/vimfiles
 
@@ -41,6 +41,8 @@ finish							" do not accidentally pick this file up... =)
 "
 " + gundo						" http://sjl.bitbucket.org/gundo.vim/
 "									o vim history visualized
+"
+" * multisearch.vim				" https://github.com/vim-scripts/multisearch.vim
 
 
 

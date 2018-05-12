@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# vim_fetch.sh by nick shin <nshin@estss.com>
+# vim_fetch.sh by nick shin <nick.shin@gmail.com>
 #
 # this file can be found at: https://github.com/nickshin/vimfiles
 #
@@ -21,6 +21,10 @@ dst=`pwd`'/dotvim.test'
 
 bundle_setup()
 {
+	echo "Did you install some essential packages?"
+	echo "(see this script for details)"
+	echo "PRESS ANY KEY TO CONTINUE OR CTRL+C TO EXIT"
+	read
 	mkdir -p $dst/autoload $dst/bundle
 }
 
@@ -101,9 +105,10 @@ bundle_git()
 		cd YouCompleteMe
 		git submodule update --init --recursive
 #		sudo apt-get install build-essential cmake
-#		sudo apt-get install python-dev python3-dev
+#		sudo apt-get install python-dev python3-dev golang-go
 		./install.py --clang-completer --gocode-completer --tern-completer
 		cd ..
+	git clone git://github.com/vim-scripts/multisearch.vim
 }
 
 # ============================================================

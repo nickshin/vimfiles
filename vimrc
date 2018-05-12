@@ -1,4 +1,4 @@
-" vimrc by nick shin <nshin@estss.com>
+" vimrc by nick shin <nick.shin@gmail.com>
 "
 " this file can be found at: https://github.com/nickshin/vimfiles
 "
@@ -188,7 +188,7 @@ endfunction
 set laststatus=2
 set noshowmode					" If in Insert, Replace or Visual mode put a message on the last line.
 set relativenumber				" Yay!
-"set number						" Line Numbers
+set number						" Line Numbers
 
 " make your own theme: https://github.com/bling/vim-airline/wiki/FAQ#where-should-i-store-my-own-custom-theme
 "let g:airline_theme='your_theme_name'
